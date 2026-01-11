@@ -1,0 +1,51 @@
+{
+  "kernel": "Kernel_Focus_v1.0",
+  "type": "brown_noise",
+  "purpose": "cognitive_defragmentation",
+  "description": "Non-musical auditory masking kernel designed to reduce external signal interference during high-cognitive-load tasks.",
+  "audio_characteristics": {
+    "spectral_profile": {
+      "noise_type": "brown",
+      "slope_db_per_octave": -6,
+      "low_cut_hz": 20,
+      "high_cut_hz": 800
+    },
+    "modulation": {
+      "enabled": true,
+      "type": "low_frequency_oscillation",
+      "rate_hz": 0.1,
+      "depth_db": 0.5,
+      "purpose": "habituation_prevention"
+    },
+    "dynamic_range": {
+      "compression": false,
+      "peak_dbfs": -1.0,
+      "average_dbfs": -18.0
+    }
+  },
+  "runtime": {
+    "loop_type": "seamless",
+    "duration_hours": 10,
+    "fade_in_seconds": 1,
+    "fade_out_seconds": 0
+  },
+  "constraints": [
+    "no_melody",
+    "no_vocals",
+    "no_rhythm",
+    "no_events"
+  ],
+  "intended_use_cases": [
+    "deep_work",
+    "software_development",
+    "adhd_focus_support",
+    "open_plan_office_masking",
+    "tinnitus_masking_non_medical"
+  ],
+  "compliance": {
+    "medical_claims": false,
+    "music_classification": "non-musical_noise"
+  },
+  "version": "1.0.0",
+  "license": "MIT"
+}
