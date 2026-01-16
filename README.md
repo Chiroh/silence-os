@@ -17,8 +17,7 @@ and support sustained focus.
 This repository links to publicly available reference runtimes of the  
 **Silence.OS Kernel Series** (Brown Noise).
 
-(https://www.youtube.com/watch?v=qS57ZtCE4rY)
-[Click here to watch the video]
+<https://www.youtube.com/watch?v=qS57ZtCE4rY>
 
 Each kernel is delivered as a 10-hour continuous runtime optimized for
 long, uninterrupted sessions.
