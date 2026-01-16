@@ -1,0 +1,27 @@
+{
+"kernel": "office",
+"version": "1.0",
+"purpose": "Speech masking in interruption-heavy environments",
+"spectrum": {
+"type": "brown_noise",
+"slope_db_per_octave": -6,
+"low_pass_hz": 12000
+},
+"texture": {
+"profile": "broad_industrial",
+"events": false,
+"rhythmic_structure": false
+},
+"modulation": {
+"lfo_hz": 0.12,
+"depth": "sub-perceptual"
+},
+"runtime": {
+"loop_hours": 10,
+"seamless": true
+},
+"calibration": {
+"gain_lock": true,
+"tolerance_db": 0.01
+}
+}
