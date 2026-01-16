@@ -1,113 +1,152 @@
-# Silence.OS — Neural Defragmentation Protocol
+Silence.OS — Neural Defragmentation Protocol
 
-![Build Status](https://img.shields.io/badge/build-passing-success)
-![Version](https://img.shields.io/badge/version-1.0.0_kernel-green)
-![License](https://img.shields.io/badge/license-MIT-blue)
+Your mind is an operating system. Defragment it.
 
-**Silence.OS** is an open audio masking specification for high-cognitive-load environments.  
-It defines non-musical, non-emotive noise kernels designed to reduce auditory interference
-and support sustained focus.
+Silence.OS is an open, non-musical audio masking specification designed for high-cognitive-load environments. It defines noise kernels that intentionally avoid melody, rhythm, and emotional modulation in order to reduce auditory interference and stabilize sustained focus.
 
-> *Your mind is an operating system. Defragment it.*
+This is not music. This is maintenance.
 
----
+What Silence.OS Is
 
-## 📡 Reference Implementation
+Silence.OS defines reproducible audio kernels based on psychoacoustic masking principles.
 
-This repository links to publicly available reference runtimes of the  
-**Silence.OS Kernel Series** (Brown Noise).
+Unlike playlists, ambient soundscapes, or adaptive music systems, Silence.OS kernels are:
 
-<https://www.youtube.com/watch?v=qS57ZtCE4rY>
+Non-emotive
 
-Each kernel is delivered as a 10-hour continuous runtime optimized for
-long, uninterrupted sessions.
+Non-rhythmic
 
----
+Spectrally stable over very long runtimes
 
-## ⚙️ Technical Overview
+Designed to disappear from conscious attention
 
-Silence.OS kernels are based on established psychoacoustic masking principles.
-Unlike music, ambient tracks, or adaptive soundscapes, they deliberately avoid
-melody, rhythm, and emotional modulation.
+The goal is not stimulation, relaxation, or motivation — but cognitive defragmentation under load.
 
-### Core Characteristics
-- **Spectrum:** Brown Noise (−6 dB/octave low-pass slope)
-- **Texture:** Constant industrial hum (no events, no variation)
-- **Modulation:** Sub-perceptual low-frequency drift (~0.1 Hz) to reduce auditory habituation
-- **Runtime:** 10h seamless loop
-- **Encoding:** High-bitrate stereo (reference implementation)
+Reference Runtimes <https://www.youtube.com/watch?v=qS57ZtCE4rY>
 
-### Target Environment
-- Developers & systems engineers  
-- Neurodivergent knowledge workers  
-- Open-plan or interruption-heavy workspaces  
+Each kernel has a publicly available reference runtime (typically a 10-hour seamless loop) published on YouTube. These videos are runtime outputs, not the specification itself.
 
----
+They exist so the kernels can be:
 
-## 🏗️ Production Architecture
+Tested immediately
 
-Silence.OS reference kernels are produced using an internal, stateful audio synthesis pipeline
-designed for long-duration spectral stability.
+Used without local synthesis
 
-### Design Principles
-- **Stateful Integration:** Prevents long-term drift and sub-sonic buildup common in naïve noise generation.
-- **Fixed Gain Calibration:** Global gain is computed once and locked for the full runtime to avoid volume breathing.
-- **Layered Masking:** Multiple correlated brown noise layers form a dense, uniform masking field.
-- **Stereo Continuity:** Phase coherence is preserved across buffer boundaries for seamless playback.
+Shared without installation friction
 
----
+The authoritative definition always lives in the corresponding spec.json.
 
-## 🎛️ Available Kernels
+Engine Overview (Silence.OS v9.x)
 
-| Kernel | Target Level | Spectral Profile | Primary Use Case |
-|------|-------------|------------------|------------------|
-| Focus v1.0 | −20 dB | Brown Noise | Deep work, logic-heavy tasks |
-| Focus v1.1 | −20 dB | Low-pass tuned | Extended cognitive stability |
-| Sleep v1.0 | −16 dB | Deep low-pass | Night-time auditory masking |
-| Office Shield v1.0 | −25 dB | Wider spectrum | Open-plan noise masking |
-| Nightshift v1.0 | −22 dB | Broad spectrum | Low-stimulus night work |
+All reference kernels are produced using the Silence.OS v9.x Production Engine — a stateful audio synthesis pipeline designed for extreme spectral stability.
 
----
+Why Standard Noise Fails
 
-## 🧠 Use Cases
+Naive brown-noise generation typically relies on cumulative summation of white noise. Over long durations, this causes:
 
-- Long coding and debugging sessions  
-- Sustained focus under cognitive load  
-- Open-plan office noise masking  
-- Night-shift or low-stimulus work  
-- Tinnitus masking (non-medical)
+Random-walk drift
 
-You do not need motivation.  
-You need maintenance.
+Subsonic pressure buildup (DC offset)
 
----
+Unstable perceived loudness when chunked or normalized
 
-## 📦 Repository Contents
+These artifacts become noticeable — and fatiguing — over multi-hour sessions.
 
-```text
+The Silence.OS Solution
+
+The v9.x engine implements:
+
+Stateful Leaky Integration
+Brown noise is generated using a leaky integrator:
+
+H(z) = 1 / (1 − α z⁻¹), with α = 0.999
+
+This preserves the −6 dB/octave slope while naturally centering the signal and preventing infra-sound drift.
+
+Global Gain Fixation
+Loudness is calibrated once in a pre-production pass. The resulting gain is locked for the entire runtime, avoiding any form of adaptive normalization or volume “breathing”.
+
+Psychoacoustic Layering
+A primary brown-noise layer is composited with a deep-texture sub-harmonic layer, forming a dense acoustic wall that masks speech, keyboards, HVAC noise, and intermittent disturbances more effectively than generic noise.
+
+Binaural Phase Continuity
+Stereo phase offsets are preserved across buffer boundaries, ensuring seamless looping without zero-crossing artifacts or spatial collapse.
+
+Kernel Model
+
+Silence.OS separates engine and kernel:
+
+The engine defines how noise is generated (stable, stateful, reproducible).
+
+A kernel defines what is generated (spectral limits, loudness, intent).
+
+Each kernel is defined by its own spec.json file.
+
+Available Kernels
+Kernel	Version	Reference Level	Low-Pass	Intended Use
+Focus	v1.1	−20 dB	6 kHz	Deep work, debugging, ADHD stability
+Sleep	v1.0	−16 dB	800 Hz	Rapid induction, sensory isolation
+Office	v1.0	−25 dB	12 kHz	Masking speech & high-frequency chatter
+Night	v1.0	−22 dB	25 kHz	Broad-spectrum masking for night shifts
+
+Each kernel:
+
+Runs as a 10-hour seamless loop
+
+Contains no events, cues, or variation
+
+Is intended to remain perceptually invisible
+
+Use Cases
+
+Long coding and debugging sessions
+
+Cognitive load stabilization (e.g. ADHD)
+
+Open-plan offices
+
+Interruption-heavy environments
+
+Night-shift or low-stimulation workflows
+
+Non-medical tinnitus masking
+
+Silence.OS is not a medical device.
+
+Repository Structure
 .
-├── spec.json        # Frequency & behavior specification
-└── README.md        # Protocol documentation
+├── kernels/
+│   ├── focus_v1.1.json
+│   ├── sleep_v1.0.json
+│   ├── office_v1.0.json
+│   └── night_v1.0.json
+└── README.md
+
+Each spec.json fully defines the target characteristics of a Silence.OS-compatible kernel.
 
 Inspect locally:
 
 git clone https://github.com/Chiroh/silence-os.git
 cd silence-os
-cat spec.json
-
-🤝 Contributing
+cat kernels/focus_v1.1.json
+Contributing
 
 Contributions are welcome.
 
-Constraints:
+Constraints are strict:
 
-    No melodies
+No melodies
 
-    No vocals
+No vocals
 
-    No rhythmic structures
+No rhythmic structures
 
-📄 License
+No emotional modulation
 
-MIT License
-© 2026 Silence.OS Collective
+This project optimizes for stability, not creativity.
+
+License
+
+MIT License © 2026 Silence.OS Collective
+
+You do not need motivation. You need maintenance.
