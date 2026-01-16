@@ -36,9 +36,9 @@ Shared without installation friction
 
 The authoritative definition always lives in the corresponding spec.json.
 
-Engine Overview (Silence.OS v9.x)
+Engine Overview (Silence.OS)
 
-All reference kernels are produced using the Silence.OS v9.x Production Engine — a stateful audio synthesis pipeline designed for extreme spectral stability.
+All reference kernels are produced using the Silence.OS Production Engine — a stateful audio synthesis pipeline designed for extreme spectral stability.
 
 Why Standard Noise Fails
 
@@ -54,7 +54,7 @@ These artifacts become noticeable — and fatiguing — over multi-hour sessions
 
 The Silence.OS Solution
 
-The v9.x engine implements:
+The engine implements:
 
 Stateful Leaky Integration
 Brown noise is generated using a leaky integrator:
@@ -121,8 +121,7 @@ Repository Structure
 │   ├── office_v1.0.json
 │   └── night_v1.0.json
 ├── LICENCE
-├── README.md
-└── spec.json
+└── README.md
 
 Each spec.json fully defines the target characteristics of a Silence.OS-compatible kernel.
 
