@@ -120,7 +120,9 @@ Repository Structure
 │   ├── sleep_v1.0.json
 │   ├── office_v1.0.json
 │   └── night_v1.0.json
-└── README.md
+├── LICENCE
+├── README.md
+└── spec.json
 
 Each spec.json fully defines the target characteristics of a Silence.OS-compatible kernel.
 
