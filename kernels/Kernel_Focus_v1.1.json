@@ -1,0 +1,27 @@
+{
+"kernel": "focus",
+"version": "1.1",
+"purpose": "Cognitive stabilization under sustained logical load",
+"spectrum": {
+"type": "brown_noise",
+"slope_db_per_octave": -6,
+"low_pass_hz": 6000
+},
+"texture": {
+"profile": "industrial_hum",
+"events": false,
+"rhythmic_structure": false
+},
+"modulation": {
+"lfo_hz": 0.1,
+"depth": "sub-perceptual"
+},
+"runtime": {
+"loop_hours": 10,
+"seamless": true
+},
+"calibration": {
+"gain_lock": true,
+"tolerance_db": 0.01
+}
+}
