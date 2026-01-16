@@ -1,0 +1,27 @@
+{
+"kernel": "night",
+"version": "1.0",
+"purpose": "Broad-spectrum masking for night shifts and low-light work",
+"spectrum": {
+"type": "brown_noise",
+"slope_db_per_octave": -6,
+"low_pass_hz": 25000
+},
+"texture": {
+"profile": "full_band_constant",
+"events": false,
+"rhythmic_structure": false
+},
+"modulation": {
+"lfo_hz": 0.1,
+"depth": "sub-perceptual"
+},
+"runtime": {
+"loop_hours": 10,
+"seamless": true
+},
+"calibration": {
+"gain_lock": true,
+"tolerance_db": 0.01
+}
+}
