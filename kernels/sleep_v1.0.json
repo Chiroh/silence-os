@@ -1,0 +1,19 @@
+{
+  "kernel": "sleep",
+  "version": "1.0",
+  "category": "sensory_isolation",
+  "spectrum": {
+    "type": "brown_noise",
+    "slope_db_per_octave": -6,
+    "low_pass_hz": 800
+  },
+  "modulation": {
+    "lfo_hz": 0.05,
+    "depth_db": 0.2
+  },
+  "gain": {
+    "reference_db": -16,
+    "normalization": "fixed_global"
+  },
+  "runtime": {
+    "loop_hours": 10,
